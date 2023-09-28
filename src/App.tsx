@@ -1,14 +1,13 @@
-import './App.css';
-import Button from './components/button/Button';
-import Circle from './components/circle/Circle';
-import Timer from './components/timer/Timer';
-function App() {
+import React from 'react'
+import './App.css'
+import Main from './components/main/Main'
+import Button from './components/button/Button'
+
+const App = () => {
+
   return (
     <div className="App" >
-      <div className='main'>
-        <Circle strokeDashoffse={110} />
-        <Timer />
-      </div>
+      <Main />
       <Button ariaLabel='Start'>
         Start
       </Button>

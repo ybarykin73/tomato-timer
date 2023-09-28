@@ -1,13 +1,25 @@
 import React from "react";
 import './Timer.scss'
 
-export interface IProps {
+import getMinutes from "../../utils/getMinutes";
+import getSeconds from "../../utils/getSeconds";
 
+export interface IProps {
+    seconds: number
 }
 
-const Timer:React.FC<IProps> = () => {
+const Timer:React.FC<IProps> = (props) => {
+    const {
+        seconds,
+    } = props
+
+    let className ='timer'
+    if (seconds <=60) {
+        className+= ' timer--warning'
+    }
+
     return (
-        <div className="timer">19:18</div>
+        <div className={className}>{getMinutes(seconds)} : {getSeconds(seconds)}</div>
     )
 }
 

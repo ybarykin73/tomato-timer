@@ -4,7 +4,26 @@
     left: 0;
     right: 0;
     font-size: 35px;
+    font-weight: bold;
     text-align: center;
     padding: 8px;
     transform: translateY(-50%);
+
+    &--warning {
+        font-size: 45px;
+        animation: warning ease-in-out 1s infinite ;
+    }
+}
+
+@keyframes warning {
+    0% {
+        color: #000
+    }
+    25% {
+        color: #f00;
+    }
+
+    75% {
+        color: #000;
+    }
 }
