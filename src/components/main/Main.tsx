@@ -8,11 +8,17 @@ export interface IProps {}
 
 const Main:React.FC<IProps> = (props) => {
 
-    const WORK_TIME = 10
-    const REST_TIME = 5
+    const WORK_TIME = 1200
+    const REST_TIME = 300
+
+    const TIME = {
+        0: WORK_TIME,
+        1: REST_TIME
+    }
 
     const [progress, setProgress] = React.useState(WORK_TIME)
     const [isStart, setIsStart] = React.useState(false)
+    const [time, setTime] = React.useState(false)
 
     const getTime = (progress) => {
 
@@ -21,7 +27,8 @@ const Main:React.FC<IProps> = (props) => {
         }
 
         if (!progress) {
-            setProgress(REST_TIME)
+            setProgress(TIME[Number(!time)])
+            setTime(!time)
         }
     }
 
@@ -37,7 +44,7 @@ const Main:React.FC<IProps> = (props) => {
     return (
         <main className="main">
             <div className="main__wrapper">
-                <Circle timeLimit={WORK_TIME} strokeDashoffse={progress} />
+                <Circle timeLimit={TIME[Number(time)]} strokeDashoffse={progress} />
                 <Timer seconds={progress} />
             </div>
             <Button 
